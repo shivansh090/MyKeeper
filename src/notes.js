@@ -15,7 +15,7 @@ const notes=[
         body:"This box is also representational purpose and you can edit it!"
     },
     {
-        key:3,
+        key:4,
         title:"This is yet another Title",
         body:"This box is also representational purpose and you can edit it!"
     }
