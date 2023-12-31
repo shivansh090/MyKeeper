@@ -5,8 +5,7 @@ const router = express.Router();
 const Note = require('../models/Note');
 
 // Create a new note for a user
-
-router.post('/:userId/notes', async (req, res) => {
+router.post('/:userId', async (req, res) => {
   try {
     const { heading, description } = req.body;
     const userId = req.params.userId;
@@ -37,5 +36,18 @@ router.get('/:userId', async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   });
-
+router.delete('/delete',async(req,res)=>{
+  const itemId = req.body._id; // Assuming your item ID is stored in the "_id" field
+        try {
+         const item = await Note.findByIdAndDelete(itemId);
+          if (!item) {
+            return res.status(404).json({ error: 'Note not found' });
+          }
+      
+          res.json({ success: true, deletedNote: item });
+        } catch (error) {
+          console.error('Error during deletion:', error);
+          res.status(500).json({ error: 'Internal server error' });
+        }
+})
 module.exports = router;

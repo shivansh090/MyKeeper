@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGOOSE_URL);
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
 
-app.post('/api/login', async (req, res) => {
+app.post('/user/login', async (req, res) => {
     const { username, password } = req.body;
   
     try {
@@ -54,7 +54,7 @@ app.get('/api/users', async (req, res) => {
   
       // Respond with user data
       res.status(200).json({
-        userId: user._id, // or any other user data you want to send
+        userId: user._id, 
         username: user.username,
         email: user.email,
       });
