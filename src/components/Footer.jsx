@@ -5,5 +5,4 @@ function Footer(){
         <p>Copyright © {year}</p></footer>
     )
 }
-
 export default Footer;
