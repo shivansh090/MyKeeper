@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer"
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, Redirect, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './Login';
 import Dash from './Dash'; // Import your Dash component
 import NotesWrap from './NotesWrap';
@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
        <Router>
-    <Header />
+    <Header isloggedin={isAuthenticated}/>
     <Routes>
       <Route path="/" element={<Dash />} />
       <Route path="/login" element={<Login isAuthenticated={isAuthenticated} onLogin={handleLogin} setusername={handleUsername}/>}/>  

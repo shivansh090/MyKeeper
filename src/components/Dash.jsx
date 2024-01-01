@@ -3,6 +3,7 @@ import hum1 from '../images/human-1.svg'
 import hum2 from '../images/human-2.svg'
 import str1 from '../images/stars.svg'
 import { Link } from 'react-router-dom'
+
 const Dash = () => {
     return (
         <div className='dash'>

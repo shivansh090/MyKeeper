@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-
+import humimg from '../images/human-3.svg';
 
 const Login = ({ isAuthenticated, onLogin, setusername }) => {
   const [errorMessages, setErrorMessages] = useState({});
@@ -13,7 +13,7 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
     event.preventDefault();
     const { uname, pass } = event.target.elements;
     try {
-      const response = await fetch(process.env.REACT_APP_REACT_APP_API_URL+'/user/login', {
+      const response = await fetch(process.env.REACT_APP_API_URL+'/user/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -22,7 +22,6 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
       });
       const data = await response.json();
       if (response.ok) {
-        console.log("first")
         setIsSubmitted(true);
         onLogin(); // Call the callback function to update isAuthenticated in App.jsx
         setusername(uname.value);
@@ -45,16 +44,19 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
       <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username </label>
-          <input type="text" name="uname" required />
+          <input placeholder='Username' type="text" name="uname" required />
+          <i class="bi inputicon bi-person-fill"></i>
           {renderErrorMessage('uname')}
         </div>
+        
         <div className="input-container">
           <label>Password </label>
-          <input type="password" name="pass" required />
+          <input placeholder='Password' type="password" name="pass" required />
+          <i style={{fontSize:"18px"}} class="bi inputicon bi-shield-lock-fill"></i>
           {renderErrorMessage('pass')}
         </div>
         <div className="button-container">
-          <input type="submit" />
+          <input type="submit" value='login'/>
         </div>
       </form>
     </div>
@@ -62,8 +64,16 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
 
   return (
     <div className="login">
+      <div className='loginimg'>
+        <img src={humimg} alt="" srcset="" />
+      </div>
       <div className="login-form">
-        <div className="title">Sign In</div>
+        <div className="title">
+          
+           <header style={{background:"transparent",boxShadow:"none"}}>
+            <h1 style={{color:"white" ,fontSize:"30px", letterSpacing:"-1px"}} >My-Keeper</h1>
+            </header>
+        </div>
         {isSubmitted ? (
           <div>User is successfully logged in</div>
         ) : (

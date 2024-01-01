@@ -1,44 +1,93 @@
 .login {
+  position: relative;
     font-family: sans-serif;
     display: flex;
+    flex-direction: row !important;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
+    height: 89vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-    background-color: #f8f9fd;
+    background-image: url('https://colorlib.com/etc/lf/Login_v12/images/img-01.jpg');
+z-index: 10;
+    
+  .loginimg{
+    transform: translateX(-140px);
+    transition: all 0.3s ease-in-out;
   }
+  }
+  .login::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(#fbc200,#8300ea);
+    opacity: .94;
+}
   
   input[type="text"],
   input[type="password"] {
-    height: 25px;
+    padding: 15px 15px 15px 55px;
+    font-size: 16px !important;
+    font-weight: 700;
+    height: 50px;
+    width: 390px;
+    border-radius: 50px;
     border: 1px solid rgba(0, 0, 0, 0.2);
   }
-  
+  textarea:focus, input:focus{
+    outline: none;
+}
+.inputicon{
+  width: fit-content;
+  left: 22px;
+  font-size: 21px;
+  top: -36px !important;
+  position: relative;
+  top: 0;
+}
+  label{
+    display: none;
+  }
   input[type="submit"] {
-    margin-top: 10px;
+    font-size: 18px !important;
+    font-weight: 800;
+    height: 50px;
+    width: 390px;
+    border-radius: 40px;
+    margin-top: 20px;
     cursor: pointer;
     font-size: 15px;
-    background: #01d28e;
-    border: 1px solid #01d28e;
+    background: #f5ba13ba;
+    border: none;
     color: #fff;
     padding: 10px 20px;
   }
   
   input[type="submit"]:hover {
-    background: #6cf0c2;
+    background: #ce6cf0;
   }
-  
+  input:focus {
+    box-shadow: #e6cb75 0px 0px 48px 5px;
+    outline: none;
+
+  }
   .button-container {
     display: flex;
     justify-content: center;
   }
   
   .login-form {
-    background-color: white;
-    padding: 2rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    display: flex;
+    flex-direction: column;
+  justify-content: center;
+  align-items: center;
   }
   
   .list-container {
@@ -46,8 +95,12 @@
   }
   
   .error {
-    color: red;
-    font-size: 12px;
+    
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-top: 20px;
+    color: white;
+    font-size: 16px;
   }
   
   .title {
@@ -58,6 +111,5 @@
   .input-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 10px;
+    height: 62px;
   }
