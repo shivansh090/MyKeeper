@@ -75,12 +75,16 @@ footer p {
   padding-left:20px ;
 }
 .plusbutton{
+  border: none;
   background: transparent;
   font-size: 50px;
   color: #f5ba13;
   position: fixed;
   bottom: 60px;
   right: 60px;
+  &:hover{
+     opacity: 0.75;
+  }
 }
 .note {
   background: #fff;

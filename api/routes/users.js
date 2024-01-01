@@ -28,7 +28,7 @@ router.post('/Signup', async (req, res) => {
       // Check if the username or email is already in use
       const existingUser = await User.findOne({ $or: [{ username }, { email }] });
       if (existingUser) {
-        return res.status(400).json({ error: 'Username or email is already in use' });
+        return res.status(400).json({ success:false, message: 'Username or email is already in use' });
       }
   
       // Create a new user
@@ -41,7 +41,7 @@ router.post('/Signup', async (req, res) => {
       res.status(201).json(newUser);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
+      res.status(500).json({ success:false, message: 'Internal Server Error' });
     }
   });
 

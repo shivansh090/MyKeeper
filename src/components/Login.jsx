@@ -6,7 +6,7 @@ import humimg from '../images/human-3.svg';
 const Login = ({ isAuthenticated, onLogin, setusername }) => {
   const [errorMessages, setErrorMessages] = useState({name: 'login',message:"Forgot username/password ?  Login with email"});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSignUp, setSignUp]= useState(true);
+  const [isSignUp, setSignUp]= useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,8 +38,8 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
   };
   const addUser = async (event) => {
     event.preventDefault();
-    const { uname,email, pass ,pass1 } = event.target.elements;
-    if(pass!==pass1){
+    const { uname,email, pass1 ,pass2 } = event.target.elements;
+    if(pass2.value!==pass1.value){
         setErrorMessages({ name: 'login', message: "Passwords doesn't match" });
         return;
     }
@@ -49,7 +49,7 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username: uname.value,email:email.value, password: pass.value }),
+        body: JSON.stringify({ username: uname.value,email:email.value, password: pass1.value }),
       });
       const data = await response.json();
       if (response.ok) {

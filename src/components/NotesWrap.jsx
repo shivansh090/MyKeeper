@@ -67,12 +67,14 @@ const NotesWrap = ({ username }) => {
     } catch (error) {
       console.error('Error:', error);
     }
+    setTitleValue('');
+    setNoteValue('');
   };
 
   return (
     <div className="noteswrapper">
       {notes.map(x => (
-        <Note key={x._id} title={x.heading} body={x.description} refresh={fetchData}></Note>
+        <Note mykey={x._id} title={x.heading} body={x.description} refresh={fetchData}></Note>
       ))}
       <div>
         <div>
@@ -82,7 +84,7 @@ const NotesWrap = ({ username }) => {
 
               <div className="mb-3">
                 <label htmlFor="exampleFormControlInput1" className="form-label">Title</label>
-                <input value={titleValue} onChange={(e) => setTitleValue(e.target.value)} type="text" name='title' className="form-control" id="exampleFormControlInput1" placeholder="New Note.." />
+                <input value={titleValue} onChange={(e) => setTitleValue(e.target.value)}  name='title' className="form-control" id="exampleFormControlInput1" placeholder="New Note.." />
               </div>
 
               <div className="mb-3">
@@ -97,7 +99,7 @@ const NotesWrap = ({ username }) => {
           </div>
         </div>
       </div>
-      <button className="btn btn-primary button plusbutton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" >
+      <button className=" btn-primary plusbutton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" >
         <i className="plus bi bi-plus-circle-fill"></i>
       </button>
     </div>
