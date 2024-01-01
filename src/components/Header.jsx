@@ -15,7 +15,7 @@ function Header({isloggedin,username}) {
                     </Link>
                     </>: <div className="profile">
                     <h2><i style={isloggedin?{color:"white"}:{}} class="bi bi-person-circle"></i></h2>
-                    <h5>{username}</h5>
+                    <h5>{username.charAt(0).toUpperCase() + username.slice(1)}</h5>
                     </div>
          }
                 </div>

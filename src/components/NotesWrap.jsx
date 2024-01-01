@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Note from "./Note";
 import './NotesWrap.css'
+import { useLocation } from 'react-router-dom';
 
 const NotesWrap = ({ username }) => {
   const [myId, setMyId] = useState('');
@@ -8,7 +9,7 @@ const NotesWrap = ({ username }) => {
   const [error, setError] = useState('');
   const [titleValue, setTitleValue] = useState('');
   const [noteValue, setNoteValue] = useState('');
-
+  console.log(useLocation().pathname);
   // Function to fetch user information based on the username
   const fetchData = async () => {
     try {
@@ -96,7 +97,7 @@ const NotesWrap = ({ username }) => {
           </div>
         </div>
       </div>
-      <button className="btn btn-primary button plusbutton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" className="">
+      <button className="btn btn-primary button plusbutton" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample" >
         <i className="plus bi bi-plus-circle-fill"></i>
       </button>
     </div>

@@ -31,7 +31,8 @@ z-index: 10;
 }
   
   input[type="text"],
-  input[type="password"] {
+  input[type="password"] ,
+  input[type="email"]{
     padding: 15px 15px 15px 55px;
     font-size: 16px !important;
     font-weight: 700;
@@ -47,7 +48,7 @@ z-index: 10;
   width: fit-content;
   left: 22px;
   font-size: 21px;
-  top: -36px !important;
+  top: -38px !important;
   position: relative;
   top: 0;
 }
@@ -81,7 +82,7 @@ z-index: 10;
   }
   
   .login-form {
-    
+    transform: translateY(-30px);
     display: flex;
     flex-direction: column;
   justify-content: center;
