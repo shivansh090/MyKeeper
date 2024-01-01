@@ -9,10 +9,15 @@ import NotesWrap from './NotesWrap';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername]=useState('');
+  const [isSignUp, setSignUp]= useState(true);
+  console.log(isSignUp)
   const handleLogin = () => {
     // Perform login logic (set isAuthenticated to true)
     setIsAuthenticated(true);
   };
+  const toggleSignUp = ()=>{
+    setSignUp(!isSignUp);
+  }
  const handleUsername = (prop) =>{
     setUsername(prop);
  }
@@ -26,10 +31,10 @@ function App() {
   return (
     <div>
        <Router>
-    <Header isloggedin={isAuthenticated} username={username}/>
+    <Header isloggedin={isAuthenticated} username={username} setSignUp={toggleSignUp} isSignUp={isSignUp}/>
     <Routes>
-      <Route path="/" element={<Dash />} />
-      <Route path="/login" element={<Login isAuthenticated={isAuthenticated} onLogin={handleLogin} setusername={handleUsername}/>}/>  
+      <Route path="/" element={<Dash setSignUp={toggleSignUp}/>} />
+      <Route path="/login" element={<Login isAuthenticated={isAuthenticated} onLogin={handleLogin} setusername={handleUsername} isSignUp={isSignUp}/>}/>  
       
       {/* <PrivateRoute path="/user" component={NotesWrap} isAuthenticated={isAuthenticated} /> */}
       <Route

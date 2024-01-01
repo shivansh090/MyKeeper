@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, {  useEffect, useState } from 'react';
 import './Login.css';
 import { useNavigate , useLocation} from 'react-router-dom';
 import humimg from '../images/human-3.svg';
 
-const Login = ({ isAuthenticated, onLogin, setusername }) => {
-  const [errorMessages, setErrorMessages] = useState({name: 'login',message:"Forgot username/password ?  Login with email"});
+const Login = ({ isAuthenticated, onLogin, setusername, isSignUp }) => {
+  const [errorMessages, setErrorMessages] = useState({name: 'login',message:"New users, SignUp first"});
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSignUp, setSignUp]= useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.pathname)
+// console.log(location.pathname)
+
+useEffect(()=>{
+isSignUp? setErrorMessages({ name: 'login', message:"Alredy have an account? Go to Login!" }):setErrorMessages({ name: 'login', message:"New users... Please SignUp" })
+},[isSignUp])
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { uname, pass1 } = event.target.elements;
@@ -91,7 +94,7 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
           <i style={{fontSize:"18px"}} class="bi inputicon bi-shield-lock-fill"></i></div>
           { isSignUp ?  
         <div className="input-container">
-          <input placeholder='re enter password' type="password" name="pass2" required />
+          <input placeholder='re-enter password' type="password" name="pass2" required />
           <i style={{fontSize:"18px"}} class="bi inputicon bi-shield-lock-fill"></i>
           {renderErrorMessage('pass')}
         </div>
