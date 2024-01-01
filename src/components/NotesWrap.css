@@ -1,0 +1,8 @@
+.card-body{
+    padding: 30px 19px;
+}
+.btn-close{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}

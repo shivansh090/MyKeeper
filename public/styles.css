@@ -33,7 +33,7 @@ header {
   &:hover{
     cursor: pointer;
     opacity: 80%;
-    color: white;
+    /* color: white; */
   }
 }
 .btndelete{
@@ -105,7 +105,7 @@ footer p {
 
 
 .dash{
-  min-height: 89.5vh;
+  min-height: 88vh;
   width: 100vw;
   background-color: #f5ba13;
   display: flex;
@@ -135,4 +135,10 @@ footer p {
 }
 .dashimg{
   position: absolute;
+}
+.profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

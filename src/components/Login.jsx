@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import humimg from '../images/human-3.svg';
 
 const Login = ({ isAuthenticated, onLogin, setusername }) => {
-  const [errorMessages, setErrorMessages] = useState({});
+  const [errorMessages, setErrorMessages] = useState({message:"Forgot Username / Password?"});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const navigate = useNavigate();
 
@@ -43,14 +43,14 @@ const Login = ({ isAuthenticated, onLogin, setusername }) => {
     <div className="form">
       <form onSubmit={handleSubmit}>
         <div className="input-container">
-          <label>Username </label>
-          <input placeholder='Username' type="text" name="uname" required />
+          
+          <input placeholder='Username' autoComplete='off' type="text" name="uname" required />
           <i class="bi inputicon bi-person-fill"></i>
           {renderErrorMessage('uname')}
         </div>
         
         <div className="input-container">
-          <label>Password </label>
+         
           <input placeholder='Password' type="password" name="pass" required />
           <i style={{fontSize:"18px"}} class="bi inputicon bi-shield-lock-fill"></i>
           {renderErrorMessage('pass')}

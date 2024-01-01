@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-function Header({isloggedin}) {
+function Header({isloggedin,username}) {
     
     return (
         <div>
@@ -13,9 +13,10 @@ function Header({isloggedin}) {
                     <Link to={"/login"}>
                         <button style={{ backgroundColor: "#1f3578", color: "white" }} className="button">Sign in</button>
                     </Link>
-                    </>: <>
-                    <h1><i style={isloggedin?{color:"white"}:{}} class="bi bi-person-circle"></i></h1>
-                    </>
+                    </>: <div className="profile">
+                    <h2><i style={isloggedin?{color:"white"}:{}} class="bi bi-person-circle"></i></h2>
+                    <h5>{username}</h5>
+                    </div>
          }
                 </div>
             </header>

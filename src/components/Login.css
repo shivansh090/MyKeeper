@@ -7,7 +7,7 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-    height: 89vh;
+    height: 88vh;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     background-image: url('https://colorlib.com/etc/lf/Login_v12/images/img-01.jpg');
 z-index: 10;
@@ -51,9 +51,7 @@ z-index: 10;
   position: relative;
   top: 0;
 }
-  label{
-    display: none;
-  }
+ 
   input[type="submit"] {
     font-size: 18px !important;
     font-weight: 800;

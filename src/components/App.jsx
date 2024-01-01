@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
        <Router>
-    <Header isloggedin={isAuthenticated}/>
+    <Header isloggedin={isAuthenticated} username={username}/>
     <Routes>
       <Route path="/" element={<Dash />} />
       <Route path="/login" element={<Login isAuthenticated={isAuthenticated} onLogin={handleLogin} setusername={handleUsername}/>}/>  
