@@ -12,7 +12,7 @@ const Login = ({ isAuthenticated, onLogin, setusername, isSignUp }) => {
 // console.log(location.pathname)
 
 useEffect(()=>{
-isSignUp? setErrorMessages({ name: 'login', message:"Alredy have an account? Go to Login!" }):setErrorMessages({ name: 'login', message:"New users... Please SignUp" })
+isSignUp? setErrorMessages({ name: 'login', message:"Alredy have an account? Go to Login!" }):setErrorMessages({ name: 'login', message:"New user?  SignUp to create new account!" })
 },[isSignUp])
   const handleSubmit = async (event) => {
     event.preventDefault();

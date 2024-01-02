@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './Login';
 import Dash from './Dash'; // Import your Dash component
 import NotesWrap from './NotesWrap';
-
+import  Getpath  from "./Getpath";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [username, setUsername]=useState('');
-  const [isSignUp, setSignUp]= useState(true);
-  console.log(isSignUp)
+  const [isSignUp, setSignUp]= useState(false);
+  const [path,setpath]=useState(null);
   const handleLogin = () => {
     // Perform login logic (set isAuthenticated to true)
     setIsAuthenticated(true);
@@ -21,6 +21,7 @@ function App() {
  const handleUsername = (prop) =>{
     setUsername(prop);
  }
+ const setpathname=(prop)=>setpath(prop);
   const handleLogout = () => {
     // Perform logout logic (set isAuthenticated to false)
     setIsAuthenticated(false);
@@ -30,10 +31,11 @@ function App() {
   }
   return (
     <div>
-       <Router>
-    <Header isloggedin={isAuthenticated} username={username} setSignUp={toggleSignUp} isSignUp={isSignUp}/>
+    
+       <Router><Getpath setpath={setpathname}/>
+    <Header isloggedin={isAuthenticated} username={username} setSignUp={toggleSignUp} isSignUp={isSignUp} path={path}/>
     <Routes>
-      <Route path="/" element={<Dash setSignUp={toggleSignUp}/>} />
+      <Route path="/" element={<Dash />} />
       <Route path="/login" element={<Login isAuthenticated={isAuthenticated} onLogin={handleLogin} setusername={handleUsername} isSignUp={isSignUp}/>}/>  
       
       {/* <PrivateRoute path="/user" component={NotesWrap} isAuthenticated={isAuthenticated} /> */}

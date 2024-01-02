@@ -107,15 +107,19 @@ footer p {
     word-wrap: break-word;
 }
 
-
+.buttondash {
+    color: #102462 !important;
+    background-color: white !important;
+}
 .dash{
-  min-height: 88vh;
+  min-height: 90.4vh;
   width: 100vw;
   background-color: #f5ba13;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  opacity: 0.9;
 }
 .dashcont{
   padding-top: 10px;
@@ -149,8 +153,38 @@ footer p {
 .btn-home{
   color: #1f3578;
   background-color: white;
-  padding: 0 9px 2px;
+  padding: 0 0.49rem 2px;
   margin-left: 10px;
   border: none;
   border-radius: 50px;
+}
+
+@media only screen and (max-width: 850px) {
+  header{
+    padding: 15px 5px 10px;
+  }
+  header h1{
+    font-size:x-large;
+  }
+  .dashcont h1{
+    font-size: 2rem;
+  }
+  .dashcont{
+    width: 70%;
+  }
+ .dashimg {
+  z-index: -1;
+  opacity: 0.5;
+ }
+ .dashimg img{
+  height: 200px !important;
+ }
+ .dashstar img{
+  height: 50px !important;
+}
+.collapse{
+  transition: all 0.45s ease-in-out;
+  width: 280px !important;
+  right: 20px !important;
+}
 }
