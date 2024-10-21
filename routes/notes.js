@@ -5,7 +5,7 @@ const router = express.Router();
 const Note = require('../models/Note');
 
 // Create a new note for a user
-router.post('/:userId', async (req, res) => {
+router.post('/add/:userId', async (req, res) => {
   try {
     const { heading, description } = req.body;
     const userId = req.params.userId;
@@ -22,6 +22,36 @@ router.post('/:userId', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+router.post('/update', async (req, res) => {
+  try {
+    const notesId = req.body.id;
+
+    // Using async/await for better readability
+    const updatedNote = await Note.findByIdAndUpdate(
+      notesId,
+      {
+        heading: req.body.heading,
+        description: req.body.description,
+      },
+      { new: true } // Return the updated document
+    );
+
+    if (!updatedNote) {
+      return res.status(404).json({ error: 'Note not found' });
+    }
+
+    // console.log('Updated Note:', updatedNote);
+    // Send a successful response to the client
+    res.json({ message: 'Note updated successfully', updatedNote });
+  } catch (error) {
+    console.error('Error:', error);
+    // Send an error response to the client
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 // Fetch notes for a user
 router.get('/:userId', async (req, res) => {
